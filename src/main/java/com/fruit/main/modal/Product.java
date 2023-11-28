@@ -1,11 +1,16 @@
 package com.fruit.main.modal;
 
+import org.springframework.stereotype.Component;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Component
 @Entity
+@Table(name="fruits")
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,12 +25,17 @@ public class Product {
 	private int discountPrice;
 	private int discountPersent;
 	
+//	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//	@JoinTable(name = "order_confirmation", joinColumns = @JoinColumn(name = "pid"), inverseJoinColumns = @JoinColumn(name = "oid"))
+//	private List<Order> orders;
+//	
+
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Product(Long id, String name, String description, String category, String imageUrl, int quantity,
-			String price, String stock, int discountPrice , int discountPersent) {
+			String price, String stock, int discountPrice, int discountPersent) {
 		super();
 		this.id = id;
 		this.name = name;
