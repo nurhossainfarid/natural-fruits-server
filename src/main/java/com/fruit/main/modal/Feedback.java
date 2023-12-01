@@ -16,6 +16,8 @@ public class Feedback {
 	private String email;
 	@Column(name="user_id")
 	private Long userId;
+	private Long productId;
+	private int rating;
 	private String comment;
 	
 	public Long getId() {
@@ -42,12 +44,26 @@ public class Feedback {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Feedback(Long id, String email, Long userId, String comment) {
+	public Feedback(Long id, String email, Long userId,Long productId, int rating, String comment) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.userId = userId;
+		this.productId = productId;
+		this.rating = rating;
 		this.comment = comment;
+	}
+	public Long getProductId() {
+		return productId;
+	}
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 	public Feedback() {
 		super();
